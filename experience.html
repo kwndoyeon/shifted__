@@ -1,0 +1,909 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Experience ADHD</title>
+    <link rel="icon" href="favicon2.png" type="image/png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <style type="text/css">
+      @font-face {font-family: 'YDIYGO330';src: url('./fonts/YDIYGO330.ttf') format('truetype');font-weight: normal;font-style: normal;}
+    html {font-family: "YDIYGO330", sans-serif;font-optical-sizing: auto;font-style: normal;line-height: 1.4;word-break: keep-all;overscroll-behavior-y: none;}
+    body, h1, h2, h3, p, ol, ul{margin: 0;padding: 0}
+    h1, h2, h3, p {word-break: keep-all;}
+    <style>
+     
+      body,
+      html {margin: 0;padding: 0;width: 100%;font-family: sans-serif;background-color: #f0f0f0;
+      }
+      body {height: 200vh; 
+      }
+
+     
+      .controls {position: fixed;top: 170px;left: 14%;transform: translateX(-50%);z-index: 100;padding: 10px;scale: 1;display: flex;border: none;              
+
+  flex-direction: column; 
+  gap: 1.7rem;  z-index: 10;
+    
+      }
+      .controls button { background-color: #DFDFDF;
+        margin: 0 5px;
+        padding: 10px 15px;
+        cursor: pointer;z-index: 10;border: none;
+      }
+      .controls button:hover {
+  background-color: #FFEA00; border: none;
+}
+
+      
+      .scene {perspective: 2500px;width: 100vw;height: 100vh;position: fixed;top: 0; left: 0;
+      }
+
+      
+      .cube {position: relative;width: 100%;height: 100%;transform-style: preserve-3d;transform: translateZ(-100px);transition: transform 1s;
+      }
+
+  
+      .cube__face {position: absolute;width: 100vw;height: 100vh; box-sizing: border-box;background-color: rgba(255, 255, 255, 0.95);border: 2px solid #f24a3c;font-size: calc(15px + 0.2vw);color: #333;overflow: hidden; 
+      }
+
+      
+      .content-wrapper { position: absolute;width: 100%;padding: 5vh 5vw;box-sizing: border-box;min-height: 130vh;
+      }
+
+      .content-wrapper h3 {text-align: center;margin-bottom: 2rem;font-size: 2em;
+      }
+
+      .content-wrapper p {font-size: 1.2em; line-height: 1.6;margin: 10px 0;text-align: center;
+      }
+
+     
+      .cube__face--back {
+        transform: rotateY(180deg) translateZ(50vh) scaleX(-1);
+      }
+      .cube__face--top {
+        transform: rotateX(90deg) translateZ(50vh) scaleY(-1);
+      }
+      .cube__face--bottom {
+        transform: rotateX(-90deg) translateZ(50vh) scaleY(-1);
+      }
+
+
+</style>
+
+    </style>
+    <style>
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+        background: #f8f8f8;
+        cursor: none; 
+      }
+
+      .crosshair {position: fixed;top: 0;left: 0; width: 200vw;height: 200vh; pointer-events: none;z-index: 100000;transform: translate(-50%, -50%);
+      }
+
+      @media screen and (min-width: 1000px) {
+        .crosshair:before,
+        .crosshair:after {position: absolute;content: "";width: 1px;background: #f24a3c;
+        }
+
+        .crosshair:before {height: 200vh;left: 50%;transform: translateX(-50%);
+        }
+
+        .crosshair:after {height: 1px;width: 200vw;top: 50%;transform: translateY(-50%);
+        }
+      }
+
+        #crosshair {z-index: 30};
+
+    </style>
+
+
+          <style>
+
+          .text {width: max-content;margin: 100vh auto;font-size: 5rem;font-weight: bold;background: #222;padding: 40px;border: 2px solid red;transform-style: preserve-3d;transition: transform 0.2s ease-out;
+    }
+
+    .overlay {position: fixed;top: 0;left: 0;width: 100vw;height: 100vh;background: rgba(255, 255, 255, 0.7);backdrop-filter: blur(5px);
+      -webkit-backdrop-filter: blur(5px); z-index: 20;display: flex; flex-direction: column; justify-content: center; align-items: center;text-align: center;color: black;font-size: 1.4rem;line-height: 2.5rem;
+    }
+
+    .overlay button {margin-top: 2rem;padding: 1rem 4rem;font-size: 1.3rem; background: #FF4B57; color: white;border: none;cursor: pointer;
+    }
+
+    .overlay-box {background-color: white;color: black;padding: 3rem 3rem;box-shadow: 0 0 30px rgba(0,0,0,0.1);display: flex;flex-direction: column;align-items: center;gap: 1.5rem;
+}
+
+@keyframes blink {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+
+.overlay-box p {
+  animation: blink 1s infinite;
+}
+
+.story-box h3 {
+  font-size:3rem;
+  font-weight: bold;
+  margin-bottom: 1.2rem;
+  color: #FF4B57;padding-bottom: 80px;padding-top: 50px;
+}
+.story-box p {
+  background-color: #FF4B57;
+  color: white;
+  padding: 0.8rem 1rem;
+margin: 0 auto 0.6rem auto; font-size: 1.5rem;
+  max-width: 900px;
+  line-height: 1.6;display: block;      
+}
+
+
+.story-box p {
+  transition: letter-spacing 0.2s ease;
+}
+
+
+.scrolling p {
+  animation: spacingWiggle 0.6s infinite alternate ease-in-out;
+}
+
+
+@keyframes spacingWiggle {
+  0% {
+    letter-spacing: 0.05em; transform: scaleX(1);
+  }
+  100% {
+    letter-spacing: 0.4em;transform: scaleX(1.47)
+  }
+}
+
+
+
+.story-box p {background-color: #FF4B57;color: white;padding: 0.8rem 1rem;margin: 0 auto 0.6rem auto;font-size: 1.3rem;max-width: 900px;line-height: 1.6;display: block;position: relative;transition: background-color 0.3s ease;min-height: 1em; 
+}
+
+
+.text-default,
+.text-hover {
+  display: block;
+  transition: opacity 0.3s ease;
+}
+
+
+.text-hover {display: none;
+}
+
+
+.story-box p:hover {background-color: #4B9EFF;
+}
+
+.story-box p:hover .text-default {display: none;
+}
+
+.story-box p:hover .text-hover {
+  display: block;font-size: 3rem; 
+  transition: font-size 0.3s ease; z-index: 30;
+}
+.story-box p {
+  transition:
+    background-color 0.3s ease,
+    transform 0.3s ease; z-index: 30;
+}
+
+.story-box p:hover {
+  background-color: #1852FF;
+  transform: scale(1.45); z-index: 30;
+}
+
+
+ .open-btn {background-color: #FFEA00;margin-top: 
+      display: inline-block; 
+      margin-top: 150px; padding: 0.8rem 1rem;font-size: 1.3rem;
+      background-color: #FFEA00;
+      padding: 10px 20px;
+      cursor: pointer; font-size: 3rem;
+      font-weight: bold;width: 890px;height: 200px; margin-left: 310px;display: flex;
+align-items: center;
+justify-content: center;
+    }
+
+    /* 팝업 배경 */
+    .modal-overlay {display: none;position: absolute;top: 0;left: 0;width: 100%;background: rgba(0,0,0,0.8);height: 100%; justify-content: center; align-items: flex-start;
+      z-index: 1000; align-items: flex-start;padding-top: 300px; z-index: 9999;backdrop-filter: blur(5px);
+      -webkit-backdrop-filter: blur(5px);
+    }
+
+   
+    .modal {background-color: #FFEA00;padding: 30px;width: 700px;margin-top: 20px;
+      position: relative;text-align: center
+    }
+
+    .modal h3 {
+      margin-top: 0;font-size: 2rem;color: black; padding-bottom: 40px; padding-top: 40px;
+    }
+
+    .option {background-color: white;padding: 15px;font-size: 1.4rem;margin: 10px 0;cursor: pointer;transition: all 0.2s;
+    }
+
+    .option:hover {
+      background-color: #1852FF;color: white;
+    }
+
+    .option.selected {
+      background-color: #FF4B57; color: white;
+    }
+
+    #result {
+      margin-top: 15px;
+      font-weight: bold;
+    }
+
+    .modal button {margin-top: 30px; margin-bottom: 20px;padding: 20px 30px;border: none;background-color: black;color: white;font-size: 1.5rem;cursor: pointer;
+
+    }
+
+    .close-btn {position: absolute;top: 10px;right: 15px;cursor: pointer;font-size: 20px;font-weight: bold;
+    }
+
+.result-overlay {position: absolute;top: 0;left: 0;width: 100%;height: 100%;background-color: #FF4B57;color: white;display: none;justify-content: center;align-items: center;font-size: 6rem;font-weight: bold;z-index: 10;
+}
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.95); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+
+#floatingContainer {position: fixed;top: 0; left: 0; width: 400px;height: 400px; z-index: 9999;pointer-events: none; 
+}
+
+.floating-image {
+  position: absolute;
+  width: 400px;
+  height: 400px;
+  animation: float 4s ease-in-out infinite alternate;
+  transition: opacity 0.3s ease;
+  pointer-events: auto;animation: floatFree 6s ease-in-out infinite alternate
+}
+
+@keyframes floatFree {
+  0%   { transform: translate(0, 0); }
+  25%  { transform: translate(-25px, 15px); }
+  50%  { transform: translate(15px, -25px); }
+  75%  { transform: translate(-25px, -15px); }
+  100% { transform: translate(0, 0); }
+}
+@keyframes floatFreeSpin {
+  0% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+  50% {
+    transform: translate(20px, -20px) rotate(20deg);
+  }
+  100% {
+    transform: translate(0, 0) rotate(-20deg);
+  }
+}
+
+
+</style>
+
+
+  </head>
+  <body style="background-image: url(real.png);background-attachment: fixed;overscroll-behavior-y: none;">
+    <div class="crosshair" id="crosshair"></div>
+
+    <script>
+      const crosshair = document.getElementById("crosshair");
+
+      document.addEventListener("mousemove", (e) => {
+        crosshair.style.left = `${e.clientX}px`;
+        crosshair.style.top = `${e.clientY}px`;
+      });
+    </script>
+
+
+    <div class="controls">
+      <button id="rotate-x-up">Rotate X Up</button>
+      <button id="rotate-x-down">Rotate X Down</button>
+      <button id="rotate-y-left">Rotate Y Left</button>
+      <button id="rotate-y-right">Rotate Y Right</button>
+    </div>
+
+
+      <div class="overlay" id="overlay">
+        <div class="overlay-box">
+    <p>3분 뒤 마감인 과제입니다.<br>얼른 집중해서 해당 텍스트를 읽고 적절한 답을 선택하세요.</p>
+    <button onclick="document.getElementById('overlay').style.display='none'">확인</button>
+  </div>
+</div>
+
+
+    <div class="scene">
+      <div class="cube">
+        <div class="cube__face cube__face--back">
+          <div class="content-wrapper">
+  <div class="story-box">
+  <h3>과제 마감 1시간 전 루틴</h3>
+
+
+  <p class="switch-text">
+  <span class="text-default">오후 10시 55분, 과제 마감까지 정확히 1시간 5분 전. </span>
+  <span class="text-hover"> 어제 전공 과제 있었던 것 같은데<br> 아 저번주였나... 기억도 안 나고 하기 싫다</span> </p> 
+
+  <p style="margin-bottom: 100px;" class="switch-text">
+    <span class="text-default"> 길동이는 아직 한 줄도 쓰지 않은 레포트를 앞에 두고 노트북을 열었다.</span>
+    <span class="text-hover"> 내가 아까 노트북 충전을 해놨었나...<br>이따가 노트북 충전해야겠다.</span> </p> 
+
+<p class="switch-text">
+  <span class="text-default"> “하기 싫으니까 일단 하기 전에 책상 좀 먼저 정리해야겠다.” </span>
+  <span class="text-hover"> 내 책상은 치운지 얼마나 됐지<br> 되게 더러웠던 것 같은데</span> </p> 
+
+<p class="switch-text">
+  <span class="text-default">먼지도 닦고, 어질러진 펜도 정리하고, 커피도 가져왔다.</span>
+  <span class="text-hover">커피 기프티콘 받은 거 빨리 써야 되는데...<br> 스타벅스 거였나? 내일 학교 끝나고 들려서 거기서 공부 좀 하다 갈까</span></p> 
+
+<p style="margin-bottom: 100px;" class="switch-text">
+ <span class="text-default">한결 깨끗해진 책상을 보니 집중이 잘 될 것만 같은 기분이 들었다</span>
+ <span class="text-hover"> 내 책상은 치운지 얼마나 됐지 되게 더러웠던 것 같은데</span></p> 
+
+
+ <p class="switch-text">
+  <span class="text-default">그다음 과제할 때 듣기 좋은 집중 플레이리스트를 찾다 보니 유튜브 알고리즘에 빠졌다.</span>
+  <span class="text-hover"> 아 아까 플레이리스트 하나 만들어 놓으려 했는데 까먹었다 <br> 근데 누구 신곡 나왔다 하지 않았나? </span></p> 
+
+
+
+  <p class="switch-text">
+  <span class="text-default">“오, 이건 진짜 집중될 것 같은 플레이리스트인 것 같은데”</span>
+  <span class="text-hover">슬슬 지루하다 뭐라는 건지도 모르겠고.. 그래도 풀어야 되니까 계속 보긴 해야겠지</span></p> 
+
+  <p class="switch-text">
+  <span class="text-default">재즈를 틀고 앉았는데 갑자기 너무 조용한 것 같아 에어팟 연결을 다시 하고,</span>
+  <span class="text-hover">재즈 들으면 너무 졸리지 않나 예전에 공연 갔을 때 재밌긴 했는데</span></p> 
+
+
+  <p class="switch-text">
+  <span class="text-default">에어팟 연결 중에 아이패드 배터리가 없는 걸 보고 충전기 찾고,</span>
+  <span class="text-hover"> 에어팟 어디에 뒀더라???<br>아까 아침에 쓰고 차에 두고왔었나?</span></p>
+
+  <p style="margin-bottom: 100px;" class="switch-text">
+ <span class="text-default">충전기 찾다 보니 잠옷을 입고 있는 자신이 너무 흐트러진 것 같아 옷을 갈아입었다.</span>
+  <span class="text-hover">아까 잠옷 사려고 했는데 어떤 잠옷 사지 이제 여름이니까...</span></p>
+
+  <p class="switch-text">
+  <span class="text-default"> 꼬르륵... 계속 움직여서 그런가 허기지는 듯한 느낌이 들었다.</span>
+   <span class="text-hover">나도 배고픈 것 같다 저녁을 언제 먹었더라</span></p>
+
+  <p class="switch-text">
+  <span class="text-default">라면을 먹고 싶긴 한데 엄마한테 들키면 안 될 것 같아 고민하던 중</span>
+  <span class="text-hover">어제 라면 진짜 맛있었는데... <br> 근데 계란을 추가하면 더 맛있어질 것 같기도</span></p>
+
+  <p style="margin-bottom: 100px;" class="switch-text">
+ <span class="text-default"> 라면은 포기하고 시리얼로 만족하기로 했다.</span>
+  <span class="text-hover">우유에 시리얼 말아 먹고 싶은데<br>어떤 시리얼이 좋을까</span></p>
+
+  <p class="switch-text">
+  <span class="text-default">결국 첫 문장을 쓴 시간은 밤 11시 42분.</span>
+  <span class="text-hover"> 11시... 11.. 11 <br> 빼빼로 같기도 하고 가래떡 같기도 하고</span></p>
+
+
+  <p class="switch-text">
+  <span class="text-default">그리고 첫 문장은 이거였다</span>
+  <span class="text-hover"> 어떤 첫 문장을 말하는 거지 지금</span></p>
+
+
+  <p class="switch-text">
+  <span class="text-default">“23100193 홍길동”</span>
+  <span class="text-hover">이게 갑자기 왜 나오는 거지? <br> 홍길동에 대한 얘기였나</span></p>
+
+
+
+
+<div class="open-btn" onclick="openModal()"> 문제 풀어보기</div>
+
+<!-- 팝업이 뜰 위치 (버튼 밑에 바로 생성됨) -->
+<div class="modal-overlay" id="quizModal">
+  <div class="modal">
+    <div class="close-btn" onclick="closeModal()">×</div>
+    <h3>다음 중 '길동이'가 첫 문장을 <br>쓰기 전까지 하지 않은 행동은?</h3>
+
+    <div class="option" data-value="1">1. 책상을 정리하고 커피를 가져왔다.</div>
+    <div class="option" data-value="2">2. 집중용 플레이리스트를 찾다가 유튜브 알고리즘에 빠졌다.</div>
+    <div class="option" data-value="3">3. 에어팟을 연결한 뒤 조용해서 볼륨을 올렸다.</div>
+    <div class="option" data-value="4">4. 충전기를 찾다 잠옷을 갈아입었다.</div>
+
+    <button onclick="checkAnswer()">정답 확인하기</button>
+    <div class="result-overlay" id="resultBox"></div>
+  </div>
+</div>
+
+
+</div>
+</div>
+</div>
+
+
+        <div class="cube__face cube__face--top">
+          <div class="content-wrapper">
+  <div class="story-box">
+   <h3>과제 마감 1시간 전 루틴</h3>
+
+
+  <p class="switch-text">
+  <span class="text-default">오후 10시 55분, 과제 마감까지 정확히 1시간 5분 전. </span>
+  <span class="text-hover"> 어제 전공 과제 있었던 것 같은데<br> 아 저번주였나... 기억도 안 나고 하기 싫다</span> </p> 
+
+  <p style="margin-bottom: 100px;" class="switch-text">
+    <span class="text-default"> 길동이는 아직 한 줄도 쓰지 않은 레포트를 앞에 두고 노트북을 열었다.</span>
+    <span class="text-hover"> 내가 아까 노트북 충전을 해놨었나...<br>이따가 노트북 충전해야겠다.</span> </p> 
+
+<p class="switch-text">
+  <span class="text-default"> “하기 싫으니까 일단 하기 전에 책상 좀 먼저 정리해야겠다.” </span>
+  <span class="text-hover"> 내 책상은 치운지 얼마나 됐지<br> 되게 더러웠던 것 같은데</span> </p> 
+
+<p class="switch-text">
+  <span class="text-default">먼지도 닦고, 어질러진 펜도 정리하고, 커피도 가져왔다.</span>
+  <span class="text-hover">커피 기프티콘 받은 거 빨리 써야 되는데...<br> 스타벅스 거였나? 내일 학교 끝나고 들려서 거기서 공부 좀 하다 갈까</span></p> 
+
+<p style="margin-bottom: 100px;" class="switch-text">
+ <span class="text-default">한결 깨끗해진 책상을 보니 집중이 잘 될 것만 같은 기분이 들었다</span>
+ <span class="text-hover"> 내 책상은 치운지 얼마나 됐지 되게 더러웠던 것 같은데</span></p> 
+
+
+ <p class="switch-text">
+  <span class="text-default">그다음 과제할 때 듣기 좋은 집중 플레이리스트를 찾다 보니 유튜브 알고리즘에 빠졌다.</span>
+  <span class="text-hover"> 아 아까 플레이리스트 하나 만들어 놓으려 했는데 까먹었다 <br> 근데 누구 신곡 나왔다 하지 않았나? </span></p> 
+
+
+
+  <p class="switch-text">
+  <span class="text-default">“오, 이건 진짜 집중될 것 같은 플레이리스트인 것 같은데”</span>
+  <span class="text-hover">슬슬 지루하다 뭐라는 건지도 모르겠고.. 그래도 풀어야 되니까 계속 보긴 해야겠지</span></p> 
+
+  <p class="switch-text">
+  <span class="text-default">재즈를 틀고 앉았는데 갑자기 너무 조용한 것 같아 에어팟 연결을 다시 하고,</span>
+  <span class="text-hover">재즈 들으면 너무 졸리지 않나 예전에 공연 갔을 때 재밌긴 했는데</span></p> 
+
+
+  <p class="switch-text">
+  <span class="text-default">에어팟 연결 중에 아이패드 배터리가 없는 걸 보고 충전기 찾고,</span>
+  <span class="text-hover"> 에어팟 어디에 뒀더라???<br>아까 아침에 쓰고 차에 두고왔었나?</span></p>
+
+  <p style="margin-bottom: 100px;" class="switch-text">
+ <span class="text-default">충전기 찾다 보니 잠옷을 입고 있는 자신이 너무 흐트러진 것 같아 옷을 갈아입었다.</span>
+  <span class="text-hover">아까 잠옷 사려고 했는데 어떤 잠옷 사지 이제 여름이니까...</span></p>
+
+  <p class="switch-text">
+  <span class="text-default"> 꼬르륵... 계속 움직여서 그런가 허기지는 듯한 느낌이 들었다.</span>
+   <span class="text-hover">나도 배고픈 것 같다 저녁을 언제 먹었더라</span></p>
+
+  <p class="switch-text">
+  <span class="text-default">라면을 먹고 싶긴 한데 엄마한테 들키면 안 될 것 같아 고민하던 중</span>
+  <span class="text-hover">어제 라면 진짜 맛있었는데... <br> 근데 계란을 추가하면 더 맛있어질 것 같기도</span></p>
+
+  <p style="margin-bottom: 100px;" class="switch-text">
+ <span class="text-default"> 라면은 포기하고 시리얼로 만족하기로 했다.</span>
+  <span class="text-hover">우유에 시리얼 말아 먹고 싶은데<br>어떤 시리얼이 좋을까</span></p>
+
+  <p class="switch-text">
+  <span class="text-default">결국 첫 문장을 쓴 시간은 밤 11시 42분.</span>
+  <span class="text-hover"> 11시... 11.. 11 <br> 빼빼로 같기도 하고 가래떡 같기도 하고</span></p>
+
+  <p class="switch-text">
+  <span class="text-default">그리고 첫 문장은 이거였다</span>
+  <span class="text-hover"> 어떤 첫 문장을 말하는 거지 지금</span></p>
+
+
+  <p class="switch-text">
+  <span class="text-default">“23100193 홍길동”</span>
+  <span class="text-hover">이게 갑자기 왜 나오는 거지? <br> 홍길동에 대한 얘기였나</span></p>
+</div>
+</div>
+</div>
+
+        <div class="cube__face cube__face--bottom">
+          <div class="content-wrapper">
+  <div class="story-box">
+  <h3>과제 마감 1시간 전 루틴</h3>
+
+
+  <p class="switch-text">
+  <span class="text-default">오후 10시 55분, 과제 마감까지 정확히 1시간 5분 전. </span>
+  <span class="text-hover"> 어제 전공 과제 있었던 것 같은데<br> 아 저번주였나... 기억도 안 나고 하기 싫다</span> </p> 
+
+  <p style="margin-bottom: 100px;" class="switch-text">
+    <span class="text-default"> 길동이는 아직 한 줄도 쓰지 않은 레포트를 앞에 두고 노트북을 열었다.</span>
+    <span class="text-hover"> 내가 아까 노트북 충전을 해놨었나...<br>이따가 노트북 충전해야겠다.</span> </p> 
+
+<p class="switch-text">
+  <span class="text-default"> “하기 싫으니까 일단 하기 전에 책상 좀 먼저 정리해야겠다.” </span>
+  <span class="text-hover"> 내 책상은 치운지 얼마나 됐지<br> 되게 더러웠던 것 같은데</span> </p> 
+
+<p class="switch-text">
+  <span class="text-default">먼지도 닦고, 어질러진 펜도 정리하고, 커피도 가져왔다.</span>
+  <span class="text-hover">커피 기프티콘 받은 거 빨리 써야 되는데...<br> 스타벅스 거였나? 내일 학교 끝나고 들려서 거기서 공부 좀 하다 갈까</span></p> 
+
+<p style="margin-bottom: 100px;" class="switch-text">
+ <span class="text-default">한결 깨끗해진 책상을 보니 집중이 잘 될 것만 같은 기분이 들었다</span>
+ <span class="text-hover"> 내 책상은 치운지 얼마나 됐지 되게 더러웠던 것 같은데</span></p> 
+
+
+ <p class="switch-text">
+  <span class="text-default">그다음 과제할 때 듣기 좋은 집중 플레이리스트를 찾다 보니 유튜브 알고리즘에 빠졌다.</span>
+  <span class="text-hover"> 아 아까 플레이리스트 하나 만들어 놓으려 했는데 까먹었다 <br> 근데 누구 신곡 나왔다 하지 않았나? </span></p> 
+
+
+
+  <p class="switch-text">
+  <span class="text-default">“오, 이건 진짜 집중될 것 같은 플레이리스트인 것 같은데”</span>
+  <span class="text-hover">슬슬 지루하다 뭐라는 건지도 모르겠고.. 그래도 풀어야 되니까 계속 보긴 해야겠지</span></p> 
+
+  <p class="switch-text">
+  <span class="text-default">재즈를 틀고 앉았는데 갑자기 너무 조용한 것 같아 에어팟 연결을 다시 하고,</span>
+  <span class="text-hover">재즈 들으면 너무 졸리지 않나 예전에 공연 갔을 때 재밌긴 했는데</span></p> 
+
+
+  <p class="switch-text">
+  <span class="text-default">에어팟 연결 중에 아이패드 배터리가 없는 걸 보고 충전기 찾고,</span>
+  <span class="text-hover"> 에어팟 어디에 뒀더라???<br>아까 아침에 쓰고 차에 두고왔었나?</span></p>
+
+  <p style="margin-bottom: 100px;" class="switch-text">
+ <span class="text-default">충전기 찾다 보니 잠옷을 입고 있는 자신이 너무 흐트러진 것 같아 옷을 갈아입었다.</span>
+  <span class="text-hover">아까 잠옷 사려고 했는데 어떤 잠옷 사지 이제 여름이니까...</span></p>
+
+  <p class="switch-text">
+  <span class="text-default"> 꼬르륵... 계속 움직여서 그런가 허기지는 듯한 느낌이 들었다.</span>
+   <span class="text-hover">나도 배고픈 것 같다 저녁을 언제 먹었더라</span></p>
+
+  <p class="switch-text">
+  <span class="text-default">라면을 먹고 싶긴 한데 엄마한테 들키면 안 될 것 같아 고민하던 중</span>
+  <span class="text-hover">어제 라면 진짜 맛있었는데... <br> 근데 계란을 추가하면 더 맛있어질 것 같기도</span></p>
+
+  <p style="margin-bottom: 100px;" class="switch-text">
+ <span class="text-default"> 라면은 포기하고 시리얼로 만족하기로 했다.</span>
+  <span class="text-hover">우유에 시리얼 말아 먹고 싶은데<br>어떤 시리얼이 좋을까</span></p>
+
+  <p class="switch-text">
+  <span class="text-default">결국 첫 문장을 쓴 시간은 밤 11시 42분.</span>
+  <span class="text-hover"> 11시... 11.. 11 <br> 빼빼로 같기도 하고 가래떡 같기도 하고</span></p>
+
+
+  <p class="switch-text">
+  <span class="text-default">그리고 첫 문장은 이거였다</span>
+  <span class="text-hover"> 어떤 첫 문장을 말하는 거지 지금</span></p>
+
+
+  <p class="switch-text">
+  <span class="text-default">“23100193 홍길동”</span>
+  <span class="text-hover">이게 갑자기 왜 나오는 거지? <br> 홍길동에 대한 얘기였나</span></p>
+
+</div>
+</div>
+</div>
+
+
+        <div class="cube__face cube__face--top">
+          <div class="content-wrapper">
+  <div class="story-box">
+   <h3>과제 마감 1시간 전 루틴</h3>
+
+
+  <p class="switch-text">
+  <span class="text-default">오후 10시 55분, 과제 마감까지 정확히 1시간 5분 전. </span>
+  <span class="text-hover"> 어제 전공 과제 있었던 것 같은데<br> 아 저번주였나... 기억도 안 나고 하기 싫다</span> </p> 
+
+  <p style="margin-bottom: 100px;" class="switch-text">
+    <span class="text-default"> 길동이는 아직 한 줄도 쓰지 않은 레포트를 앞에 두고 노트북을 열었다.</span>
+    <span class="text-hover"> 내가 아까 노트북 충전을 해놨었나...<br>이따가 노트북 충전해야겠다.</span> </p> 
+
+<p class="switch-text">
+  <span class="text-default"> “하기 싫으니까 일단 하기 전에 책상 좀 먼저 정리해야겠다.” </span>
+  <span class="text-hover"> 내 책상은 치운지 얼마나 됐지<br> 되게 더러웠던 것 같은데</span> </p> 
+
+<p class="switch-text">
+  <span class="text-default">먼지도 닦고, 어질러진 펜도 정리하고, 커피도 가져왔다.</span>
+  <span class="text-hover">커피 기프티콘 받은 거 빨리 써야 되는데...<br> 스타벅스 거였나? 내일 학교 끝나고 들려서 거기서 공부 좀 하다 갈까</span></p> 
+
+<p style="margin-bottom: 100px;" class="switch-text">
+ <span class="text-default">한결 깨끗해진 책상을 보니 집중이 잘 될 것만 같은 기분이 들었다</span>
+ <span class="text-hover"> 내 책상은 치운지 얼마나 됐지 되게 더러웠던 것 같은데</span></p> 
+
+
+ <p class="switch-text">
+  <span class="text-default">그다음 과제할 때 듣기 좋은 집중 플레이리스트를 찾다 보니 유튜브 알고리즘에 빠졌다.</span>
+  <span class="text-hover"> 아 아까 플레이리스트 하나 만들어 놓으려 했는데 까먹었다 <br> 근데 누구 신곡 나왔다 하지 않았나? </span></p> 
+
+
+
+  <p class="switch-text">
+  <span class="text-default">“오, 이건 진짜 집중될 것 같은 플레이리스트인 것 같은데”</span>
+  <span class="text-hover">슬슬 지루하다 뭐라는 건지도 모르겠고.. 그래도 풀어야 되니까 계속 보긴 해야겠지</span></p> 
+
+  <p class="switch-text">
+  <span class="text-default">재즈를 틀고 앉았는데 갑자기 너무 조용한 것 같아 에어팟 연결을 다시 하고,</span>
+  <span class="text-hover">재즈 들으면 너무 졸리지 않나 예전에 공연 갔을 때 재밌긴 했는데</span></p> 
+
+
+  <p class="switch-text">
+  <span class="text-default">에어팟 연결 중에 아이패드 배터리가 없는 걸 보고 충전기 찾고,</span>
+  <span class="text-hover"> 에어팟 어디에 뒀더라???<br>아까 아침에 쓰고 차에 두고왔었나?</span></p>
+
+  <p style="margin-bottom: 100px;" class="switch-text">
+ <span class="text-default">충전기 찾다 보니 잠옷을 입고 있는 자신이 너무 흐트러진 것 같아 옷을 갈아입었다.</span>
+  <span class="text-hover">아까 잠옷 사려고 했는데 어떤 잠옷 사지 이제 여름이니까...</span></p>
+
+  <p class="switch-text">
+  <span class="text-default"> 꼬르륵... 계속 움직여서 그런가 허기지는 듯한 느낌이 들었다.</span>
+   <span class="text-hover">나도 배고픈 것 같다 저녁을 언제 먹었더라</span></p>
+
+  <p class="switch-text">
+  <span class="text-default">라면을 먹고 싶긴 한데 엄마한테 들키면 안 될 것 같아 고민하던 중</span>
+  <span class="text-hover">어제 라면 진짜 맛있었는데... <br> 근데 계란을 추가하면 더 맛있어질 것 같기도</span></p>
+
+  <p style="margin-bottom: 100px;" class="switch-text">
+ <span class="text-default"> 라면은 포기하고 시리얼로 만족하기로 했다.</span>
+  <span class="text-hover">우유에 시리얼 말아 먹고 싶은데<br>어떤 시리얼이 좋을까</span></p>
+
+  <p class="switch-text">
+  <span class="text-default">결국 첫 문장을 쓴 시간은 밤 11시 42분.</span>
+  <span class="text-hover"> 11시... 11.. 11 <br> 빼빼로 같기도 하고 가래떡 같기도 하고</span></p>
+
+  <p class="switch-text">
+  <span class="text-default">그리고 첫 문장은 이거였다</span>
+  <span class="text-hover"> 어떤 첫 문장을 말하는 거지 지금</span></p>
+
+
+  <p class="switch-text">
+  <span class="text-default">“23100193 홍길동”</span>
+  <span class="text-hover">이게 갑자기 왜 나오는 거지? <br> 홍길동에 대한 얘기였나</span></p>
+</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+    <script>
+    
+      const cube = document.querySelector(".cube");
+      let currentRotateX = 0;
+      let currentRotateY = 0;
+
+      document.getElementById("rotate-x-up").addEventListener("click", () => {
+        currentRotateX -= 90;
+        cube.style.transform = `rotateX(${currentRotateX}deg) rotateY(${currentRotateY}deg)`;
+      });
+      document.getElementById("rotate-x-down").addEventListener("click", () => {
+        currentRotateX += 90;
+        cube.style.transform = `rotateX(${currentRotateX}deg) rotateY(${currentRotateY}deg)`;
+      });
+      document.getElementById("rotate-y-left").addEventListener("click", () => {
+        currentRotateY -= 90;
+        cube.style.transform = `rotateX(${currentRotateX}deg) rotateY(${currentRotateY}deg)`;
+      });
+      document
+        .getElementById("rotate-y-right")
+        .addEventListener("click", () => {
+          currentRotateY += 90;
+          cube.style.transform = `rotateX(${currentRotateX}deg) rotateY(${currentRotateY}deg)`;
+        });
+
+      
+      const contentWrappers = document.querySelectorAll(".content-wrapper");
+
+      
+      window.addEventListener("scroll", () => {
+     
+        const scrollY = window.scrollY;
+       
+        const pageScrollableHeight =
+          document.body.scrollHeight - window.innerHeight;
+       
+        const scrollPercent =
+          pageScrollableHeight > 0 ? scrollY / pageScrollableHeight : 0;
+
+        contentWrappers.forEach((wrapper) => {
+          const parentFace = wrapper.parentElement;
+       
+          const contentMaxScroll =
+            wrapper.offsetHeight - parentFace.offsetHeight;
+
+         
+          let contentY;
+          if (
+            parentFace.classList.contains("cube__face--top")
+          ) {
+            contentY = -scrollPercent * contentMaxScroll + 700;
+        } 
+          if (
+            parentFace.classList.contains("cube__face--bottom")
+          ) {
+            contentY = -scrollPercent * contentMaxScroll - 700;
+          }
+          if (
+            parentFace.classList.contains("cube__face--back")
+          ) {
+            contentY = -scrollPercent * contentMaxScroll;
+          }
+
+         
+          wrapper.style.transform = `translateY(${contentY}px)`;
+        });
+      });
+
+
+
+      const texts = document.querySelectorAll('.text');
+    const vh = window.innerHeight;
+    const zoneHeight = 200;
+
+    window.addEventListener('scroll', () => {
+      texts.forEach(el => {
+        const rect = el.getBoundingClientRect();
+        const centerY = rect.top + rect.height / 2;
+
+        if (centerY < zoneHeight) {
+          const ratio = 1 - centerY / zoneHeight;
+          const rotateX = ratio * 20;
+          el.style.transform = `translateZ(-200px) rotateX(${rotateX}deg)`;
+        } else if (centerY > vh - zoneHeight) {
+          const ratio = (centerY - (vh - zoneHeight)) / zoneHeight;
+          const rotateX = -ratio * 20;
+          el.style.transform = `translateZ(-200px) rotateX(${rotateX}deg)`;
+        } else {
+          el.style.transform = 'none';
+        }
+      });
+    });
+
+
+
+
+    let scrollTimeout;
+
+window.addEventListener("scroll", () => {
+  document.body.classList.add("scrolling");
+
+  clearTimeout(scrollTimeout);
+  scrollTimeout = setTimeout(() => {
+    document.body.classList.remove("scrolling");
+  }, 150); 
+});
+
+
+
+
+
+    </script>
+
+    <script>
+  let selectedOption = null;
+  const options = document.querySelectorAll('.option');
+
+  options.forEach(option => {
+    option.addEventListener('click', () => {
+      options.forEach(o => o.classList.remove('selected'));
+      option.classList.add('selected');
+      selectedOption = option.getAttribute('data-value');
+    });
+  });
+
+function checkAnswer() {
+  const resultBox = document.getElementById('resultBox');
+
+  if (!selectedOption) {
+    alert('선택지를 먼저 골라주세요!');
+    return;
+  }
+
+  resultBox.style.display = 'flex';
+
+  if (selectedOption === '3') {
+    resultBox.innerText = '정답입니다!';
+    resultBox.style.backgroundColor = '#1852FF';
+
+    setTimeout(() => {
+      window.location.href = 'index.html'; 
+    }, 1500);
+  } else {
+    resultBox.innerText = '오답입니다.';
+    resultBox.style.backgroundColor = '#FF4B57';
+
+    setTimeout(() => {
+      resultBox.style.display = 'none';
+      selectedOption = null;
+      document.querySelectorAll('.option').forEach(opt => opt.classList.remove('selected'));
+    }, 1500);
+  }
+}
+
+  function openModal() {
+    const modal = document.getElementById('quizModal');
+    modal.style.display = 'flex';document.body.style.overflow = 'hidden';setTimeout(spawnFloatingImages, 1500);
+
+    // 현재 스크롤 위치 기준으로 modal 위치 고정
+    const yOffset = window.scrollY;
+    modal.style.top = yOffset + 50 + 'px';
+  }
+
+
+function spawnFloatingImages() {
+  const container = document.getElementById('floatingContainer');
+  const imgFiles = ['gif1.gif', 'gif2.gif', 'gif7.gif', 'gif4.gif', 'gif5.gif','gif8.gif','gif10.gif','gif17.gif'];
+
+  imgFiles.forEach((src, i) => {
+  setTimeout(() => {
+    const img = document.createElement('img');
+    img.src = src;
+    img.classList.add('floating-image');
+
+    const animations = ['floatFree', 'floatFreeSpin'];
+const chosen = animations[Math.floor(Math.random() * animations.length)];
+
+img.style.animationName = chosen;
+img.style.animationDuration = `${4 + Math.random() * 4}s`;
+img.style.animationTimingFunction = 'ease-in-out';
+img.style.animationIterationCount = 'infinite';
+img.style.animationDirection = 'alternate';
+
+
+    // 랜덤 위치 
+    img.style.top = `${Math.random() * (window.innerHeight - 200)}px`;
+    img.style.left = `${Math.random() * (window.innerWidth - 200)}px`;
+
+    // 마우스 이벤트
+img.addEventListener('mousemove', (event) => {
+  const allImgs = document.querySelectorAll('.floating-image');
+  allImgs.forEach(imgEl => {
+    const rect = imgEl.getBoundingClientRect();
+    if (
+      event.clientX >= rect.left &&
+      event.clientX <= rect.right &&
+      event.clientY >= rect.top &&
+      event.clientY <= rect.bottom
+    ) {
+      imgEl.style.opacity = '0';
+    }
+  });
+});
+
+img.addEventListener('mouseout', () => {
+  const allImgs = document.querySelectorAll('.floating-image');
+  allImgs.forEach(imgEl => {
+    imgEl.style.opacity = '1';
+  });
+});
+
+    container.appendChild(img);setTimeout(() => {
+  img.remove(); // 또는 img.style.display = 'none';
+}, 8000); // 5초 후 제거
+  }, i * 500); // ← 0.5초 간격으로 등장
+});
+}
+
+
+  function closeModal() {
+    const modal = document.getElementById('quizModal');
+    modal.style.display = 'none';
+    selectedOption = null;
+    document.querySelectorAll('.option').forEach(opt => opt.classList.remove('selected'));
+    document.getElementById('result').innerText = ''; document.body.style.overflow = '';
+  }
+
+
+  
+</script>
+ <div class="floating-container" id="floatingContainer"></div>
+  </body>
+</html>
