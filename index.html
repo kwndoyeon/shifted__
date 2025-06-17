@@ -1,0 +1,853 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Shifted</title>
+  <link rel="icon" href="favicon1.png" type="image/png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <style type="text/css">
+      @font-face {font-family: 'YDIYGO330';src: url('./fonts/YDIYGO330.ttf') format('truetype');font-weight: normal;font-style: normal;}
+    html {font-family: "YDIYGO330", sans-serif;font-optical-sizing: auto;font-style: normal;line-height: 1.4;word-break: keep-all;overscroll-behavior-y: none;}
+    body, h1, h2, h3, p, ol, ul{margin: 0;padding: 0}
+    body {overflow-x: hidden;}
+    h1, h2, h3, p {word-break: keep-all;}
+
+.left-section {position: sticky;top: 0;width: 210px;padding: 60px 25px;margin: 60px 40px;align-self: flex-start;z-index: 10}
+
+.left-section h1 {font-size: 2.5rem;margin-bottom: 1rem;border-bottom: 1px solid #000;padding-bottom: 1rem;}
+.left-section p , .description {font-size: 0.8rem;}
+
+nav.menu ul { list-style: none;padding-left: 0;padding-top: 1.5rem;user-select: none;}
+nav.menu ul li {display: flex;justify-content: space-between; border-left: 1px solid #000;padding: 0.15rem 0;padding-left: 1rem;font-size: 0.8rem;gap: 1rem;}
+nav.menu ul li:hover span {
+  color: #FF4B57;
+  border-bottom: 1px solid #FF4B57;transition: all 0.3s ease;}
+
+
+body {margin: 0;background: #fff;}
+
+.orbit-container {position: absolute;top: 40%;left: 50%;width: 0;height:300px; transform: translate(-50%, -50%); perspective: 1000px;padding-right: 100px}
+
+.orbit-card {width: 350px;height: 350px;border-radius: 16px;overflow: hidden;animation: orbit-full 8s linear infinite;transform-style: preserve-3d;}
+
+.orbit-card img {width: 100%;height: 100%;object-fit: cover;}
+
+
+.orbit-card-1 {
+  animation: orbit-card-1 8s linear infinite; position: absolute;top: 20%;
+}
+
+
+@keyframes orbit-card-1 {
+  0% {transform:rotateZ(0deg)translateX(500px)rotateY(0deg)scale(0.6);}
+
+  25% {transform:rotateZ(90deg)translateX(500px)rotateY(90deg)scale(1.6);}
+
+  50% {transform:rotateZ(180deg)translateX(500px)rotateY(180deg)scale(0.6);}
+
+  75% {transform:rotateZ(270deg)translateX(500px)rotateY(270deg)scale(1.2);}
+
+  100% {transform:rotateZ(360deg)translateX(500px)rotateY(360deg)scale(0.6);}}
+
+.orbit-card-2 {
+  animation: orbit-card-2 12s linear infinite;position: absolute;top: 10%;
+}
+@keyframes orbit-card-2 {
+  0% {
+    transform: rotateZ(0deg) translateX(420px) rotateY(0deg) scale(0.7);
+  }
+  20% {
+    transform: rotateZ(90deg) translateX(420px) rotateY(90deg) scale(1.1);
+  }
+  50% {
+    transform: rotateZ(180deg) translateX(210px) rotateY(180deg) scale(0.8);
+  }
+  80% {
+    transform: rotateZ(270deg) translateX(420px) rotateY(270deg) scale(1.3);
+  }
+  100% {
+    transform: rotateZ(360deg) translateX(420px) rotateY(360deg) scale(0.7);
+  }}
+
+  .orbit-card-9 {
+  animation: orbit-card-9 7s linear infinite;position: absolute;top: 5%;
+}
+
+  @keyframes orbit-card-9 {
+  0%   { transform: rotateZ(90deg) translateX(200px) rotateY(0deg) scale(1.2); }
+  25%  { transform: rotateZ(180deg) translateX(200px) rotateY(90deg) scale(0.8); }
+  50%  { transform: rotateZ(270deg) translateX(200px) rotateY(180deg) scale(1.2); }
+  75%  { transform: rotateZ(360deg) translateX(200px) rotateY(270deg) scale(1.4); }
+  100% { transform: rotateZ(450deg) translateX(200px) rotateY(360deg) scale(1.2); }
+}
+
+.orbit-card-4 {
+  animation: orbit-card-4 10s linear infinite;position: absolute;top: 10%;
+}
+@keyframes orbit-card-4 {
+  0%   { transform: rotateZ(135deg) translateX(450px) rotateY(0deg) scale(0.85); }
+  25%  { transform: rotateZ(225deg) translateX(450px) rotateY(90deg) scale(1.0); }
+  50%  { transform: rotateZ(315deg) translateX(450px) rotateY(180deg) scale(0.6); }
+  75%  { transform: rotateZ(405deg) translateX(450px) rotateY(270deg) scale(1.15); }
+  100% { transform: rotateZ(495deg) translateX(450px) rotateY(360deg) scale(0.85); }
+}
+
+.orbit-card-5 {
+  animation: orbit-card-5 8.5s linear infinite;position: absolute;top: 10%;
+}
+@keyframes orbit-card-5 {
+  0%   { transform: rotateZ(45deg) translateX(260px) rotateY(0deg) scale(1.1); }
+  25%  { transform: rotateZ(135deg) translateX(260px) rotateY(90deg) scale(0.8); }
+  50%  { transform: rotateZ(225deg) translateX(260px) rotateY(180deg) scale(1.2); }
+  75%  { transform: rotateZ(315deg) translateX(260px) rotateY(270deg) scale(1.0); }
+  100% { transform: rotateZ(360deg) translateX(260px) rotateY(360deg) scale(1.1); }
+}
+.orbit-card-12 {
+  animation: orbit-card-12 9s linear infinite;position: absolute;top: 20%;
+}
+@keyframes orbit-card-12 {
+  0%   { transform: rotateZ(180deg) translateX(300px) rotateY(0deg) scale(0.75) }
+  100% { transform: rotateZ(540deg) translateX(300px) rotateY(360deg) scale(0.75); }
+}
+
+.orbit-card-13 {
+  animation: orbit-card-13 6s linear infinite;position: absolute;top: 20%;
+}
+@keyframes orbit-card-13 {
+  0%   { transform: rotateZ(180deg) translateX(450px) rotateY(0deg) scale(0.75); }
+  50%  { transform: rotateZ(360deg) translateX(450px) rotateY(180deg) scale(1.0); }
+  100% { transform: rotateZ(540deg) translateX(450px) rotateY(360deg) scale(0.75); }
+}
+
+.orbit-card-7 {
+  animation: orbit-card-7 10s linear infinite;position: absolute;top: 20%;
+}
+@keyframes orbit-card-7 {
+  0%   { transform: rotateZ(180deg) translateX(380px) rotateY(0deg) scale(1.2); }
+  70%  { transform: rotateZ(360deg) translateX(260px) rotateY(180deg) scale(0.8); }
+  100% { transform: rotateZ(540deg) translateX(380px) rotateY(360deg) scale(1.2); }
+}
+.orbit-card-10 {
+  animation: orbit-card-10 10s linear infinite;position: absolute;top: 20%;
+}
+@keyframes orbit-card-10 {
+  0%   { transform: rotateZ(20deg) translateX(200px) rotateY(0deg) scale(1.2); }
+  25%  { transform: rotateZ(45deg) translateX(200px) rotateY(90deg) scale(0.8); }
+  50%  { transform: rotateZ(105deg) translateX(200px) rotateY(180deg) scale(0.7); }
+  75%  { transform: rotateZ(155deg) translateX(200px) rotateY(270deg) scale(0.6); }
+  100% { transform: rotateZ(360deg) translateX(200px) rotateY(360deg) scale(1.2); }}
+
+.orbit-card-8 {
+animation: orbit-card-8 10s linear infinite;position: absolute;top: 20%;
+}
+@keyframes orbit-card-8 {
+  0%   { transform: rotateZ(20deg) translateX(500px) rotateY(0deg) scale(0.6); }
+  25%  { transform: rotateZ(60deg) translateX(500px) rotateY(90deg) scale(1.2); }
+  50%  { transform: rotateZ(150deg) translateX(500px) rotateY(180deg) scale(0.8); }
+  75%  { transform: rotateZ(220deg) translateX(500px) rotateY(270deg) scale(1.2); }
+  100% { transform: rotateZ(360deg) translateX(500px) rotateY(360deg) scale(0.6); }}
+}
+
+
+
+
+
+.s0 {padding-left: 800px;padding-top: 250px;font-size: 3rem;font-weight: 600;}
+li {display: flex;justify-content: flex-start; align-items: center;gap: 4rem;font-size: 5rem;user-select: none}
+
+.s0 li:hover {background-color: #FF4B57;color: white;padding-left: 50px;transition: all 0.3s ease}
+.menu a {color: black;text-decoration: none;}
+
+.menu a:hover {color: #FF4B57;}
+.menu-text {display: flex;gap: 4rem;font-size: 5rem;color: black;text-decoration: none;user-select: none;align-items: center;}
+
+.menu-text:hover {color: white;}
+
+
+
+.info-section {display: flex;justify-content: flex-start;align-items: flex-start;padding: 80px 100px; gap: 50px;
+ padding-bottom: 200px; background-color:#FFEA00 ;padding-top: 100px;}
+
+.info-left {flex: 1;text-align: left; color: #0057ff;position: relative;bottom: 15px;left:300px;padding-left: 300px}
+
+.info-left h1 {font-size: 3.5rem;font-weight: 900;}
+
+.info-left h2 {font-size: 1.5rem;font-weight: 700;line-height: 1.5;}
+
+.info-right {flex: 1;font-size: 1.3rem;font-weight: 600;color: #000;line-height: 2;}
+
+
+
+.s1{width: 100%; height: 1200px;background-image: url("img1.png");background-size: cover; background-position: center;background-repeat: no-repeat;background-attachment: fixed;}
+.blue-box {background-color: #0057ff;color: white;padding: 20px; width: 500px; height:150px;position: relative;top: 220px;left: 530px}
+
+img.swing {animation: swing 2s infinite ease-in-out;
+  transform-origin: center;}
+
+@keyframes swing {
+  0%   { transform: rotate(0deg); }
+  25%  { transform: rotate(-30deg); }
+  50%  { transform: rotate(30deg); }
+  75%  { transform: rotate(-30deg); }
+  100% { transform: rotate(0deg); }}
+
+
+
+
+.text-box {padding-left: 30px;padding-top: 30px}
+.text-box-title {
+  background-color: #0057ff;
+  font-weight: 400;
+ padding-bottom: 20px;padding-top: 15px;padding-left: 20px;
+  font-size: 1.1rem; color:white; width: 435px;height: 20px;position: relative; left: 1070px;
+}
+
+.text-box-content {
+  background-color: #0057ff;
+ padding-right: 20px; padding-left: 30px;padding-right: 25px;padding-top: 20px;
+  font-size: 0.95rem;color:white; width: 260px;font-weight:300px;position: relative; left: 1210px; padding-bottom: 70px; line-height: 1.6;
+}
+
+
+
+.text-box2 {position: relative;right: 270px}
+.text-box-title2 {
+  background-color: #D0D0D0;
+  font-weight: 400;
+ padding-bottom: 20px;padding-top: 15px;padding-left: 20px;
+  font-size: 1.1rem; color:black; width: 475px;height: 20px;position: relative; left: 1070px; 
+}
+
+.text-box-content2 {
+  background-color: #D0D0D0;
+ padding-right: 20px; padding-left: 30px;padding-right: 25px;padding-top: 20px;
+  font-size: 0.95rem;color:black; width: 300px;font-weight:300px;position: relative; left: 1210px; padding-bottom: 299px; line-height: 1.6;}
+
+
+.box {background-color: #0057ff;color: white;
+  font-weight: 600;
+  font-size: 1.7rem;
+  line-height: 1.5;
+  padding: 20px 20px;
+  width: 525px;
+  position: relative;
+  transition: all 0.3s ease-in-out;
+  background-size: cover;
+  background-position: center;}
+
+
+
+.box1:hover {
+  background-image: url('img2.jpg'); 
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;animation: shake 0.15s infinite;color: transparent;}
+
+@keyframes shake {
+  0% { transform-origin: right center 90%;transform: scale(1.3)translate(0, 0) rotate(0deg); }
+  25% { transform-origin: right center 90%;transform: scale(1.3) translate(4px, 4px) rotate(1deg); }
+  50% { transform-origin: right center 90%;transform: scale(1.3)translate(-4px, -4px) rotate(-1deg); }
+  75% { transform-origin: right center 90%;transform: scale(1.3)translate(4px, -4px) rotate(1deg); }
+  100% { transform-origin: right center 90%;transform: scale(1.3)translate(0, 0) rotate(0deg); }}
+
+
+.box2:hover {
+  background-image: url('img3.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;animation: spin 2s linear infinite;color: transparent; z-index: 3}
+
+
+@keyframes spin {
+  0%   { background-position: center; transform: rotate(0deg); }100% { background-position: center; transform: rotate(360deg); }}
+
+.box3:hover {
+  background-image: url("img4.png");background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;color: transparent;
+  animation: updown 0.23s infinite;}
+
+@keyframes updown {
+  0%   { transform: translateY(0); }
+  25%  { transform: translateY(-70px); }
+  50%  { transform: translateY(70px); }
+  75%  { transform: translateY(-70px); }
+  100% { transform: translateY(0); }
+}
+
+
+
+
+.face {background-color: #D0D0D0;background-image: url(face.png);}
+
+.text-box3 {position: relative;right: 270px}
+.text-box-title3 {
+  background-color: #FF4B57;
+  font-weight: 380;
+ padding-bottom: 20px;padding-top: 15px;padding-left: 20px;
+  font-size: 1.1rem; color:black; width: 425px;height: 20px;position: relative; left: 1070px;}
+
+.text-box-content3 {
+  background-color: #FF4B57;
+ padding-right: 20px; padding-left: 30px;padding-right: 25px;padding-top: 20px;
+  font-size: 0.95rem;color:black; width: 250px;font-weight:300px;position: relative; left: 1210px; padding-bottom: 20px; line-height: 1.5;}
+
+.text-box-content3-hover {
+  background-color: #1852FF;padding-right: 20px; padding-left: 30px;padding-right: 25px;padding-top: 20px;font-size: 0.95rem;color: white;width: 250px;font-weight: 300;position: absolute;left: 1210px;top: 100%;opacity: 0;transition: all 0.6s ease-in-out;z-index: 0;line-height: 1.5}
+
+
+.text-box3:hover .text-box-content3-hover {
+  top: 55px; opacity: 1;z-index: 1;}
+
+
+
+
+
+
+
+.image-box {position: relative;display: inline-block;}
+
+.image-wrapper {position: relative;display: inline-block;margin: 40px;}
+
+.adhd-img {width: 750px; transition: transform 0.4s ease;}
+
+.number-box {position: absolute;top: 20px;left: 10px; background-color: black;color: white;padding: 6px 10px;font-weight: bold;font-size: 16px;opacity: 1;
+  transition: opacity 0.3s ease, filter 0.3s ease;}
+
+.description-box {position: absolute; top: 100px;left: 100px;width: 300px;background-color: #1852FF;color: white;padding: 15px;opacity: 0;visibility: hidden;transition: opacity 0.4s ease, transform 0.4s ease;transform: translateY(20px);z-index: 30; font-size: 1.5rem;box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25)}
+
+.image-wrapper:hover .adhd-img {transform: scale(1.5);position: relative;z-index: 20;}
+
+.image-wrapper:hover .description-box {opacity: 1;visibility: visible;transform: translateY(0);}
+
+.image-gallery.hovering .image-wrapper {filter: blur(7px);}
+
+.image-gallery.hovering .image-wrapper.active {filter: none !important;z-index: 100;}
+
+.number-tag {position: absolute;top: -33px;left: 0px; background-color: #1852FF;color: white;font-size: 20px;padding: 6px 10px;font-weight: bold;z-index: 999;}
+
+.image-gallery.hovering .image-wrapper:not(.active) .number-box {
+  filter: blur(7px);
+  transition: filter 0.3s ease;
+}
+
+.image-gallery.hovering .image-wrapper.active .number-box {
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+
+@keyframes moveBackground {from {background-position: 0 center;} to {  background-position: 100% center;}
+}
+
+
+.text-box {background-color: black;
+  color: white;font-weight: bold;font-size: 5rem;line-height: 1.5;padding: 2rem; width: fit-content;
+}
+
+
+
+@keyframes pillMove {0% {transform: translateX(0);
+    opacity: 1; }
+  100% {transform: translateX(420px);opacity: 0;}
+}
+
+
+.info-box {display: flex;justify-content: center;text-align: left;gap: 4.5rem;flex-wrap: wrap;color: white;
+}
+
+.box-group h3 {background: white;color: black;
+  padding-top:0.7rem;padding-bottom:0.7rem;padding-left: 2rem; padding-right: 0.7rem;
+  font-weight: bold;
+  text-align: left; width: 320px;
+}
+
+.boxa {
+  background-color: #135dff;color: white;padding: 2rem; max-width: 364px;text-align: left;font-size: 1rem;line-height: 1.7;margin-top: 1rem;
+}
+
+#treat-section {min-height: auto;background: black;text-align: center;color: white;padding-bottom: 13rem; 
+}
+
+
+@keyframes floatUpDown {0% {transform: translateY(0px);}50% {transform: translateY(-10px);}100% {transform: translateY(0px);}
+}
+
+#text {
+  animation: floatUpDown 1.4s ease-in-out infinite;
+}
+
+
+
+
+.flip-box { perspective: 1000px; width: 364px; height: auto;
+}
+
+.flip-inner {position: relative;width: 100%;transition: transform 0.8s;transform-style: preserve-3d;height: 100%;
+}
+
+.flip-box:hover .flip-inner {transform: rotateY(180deg);
+}
+
+.flip-front, .flip-back { position: absolute; width: 100%;backface-visibility: hidden; top: 0;left: 0;
+  box-sizing: border-box;
+}
+
+.flip-front {transform: rotateY(0deg);z-index: 2;
+}
+
+.flip-back { transform: rotateY(180deg);background-color: #FF4B57;color: white;
+}
+
+
+
+.new-section {
+  position: relative; /* 위치 기준 만들기 */
+  width: 100%;
+  height: 130vh; /* 또는 원하는 높이 */
+  z-index: 0; /* 필요 시 조정 */
+  overflow: hidden; background-color: black;mqrgin-right: 500px;
+}
+
+.new {position: relative;z-index: 0}
+  .new::before{content:"";position: absolute;top: 0;left: 0;right: 0;bottom: 0;background: linear-gradient(to bottom,rgba(0,0,0,0.2)0%,rgba(0,0,0,0.4)70%,#000);z-index: -1;}
+}
+
+
+.experience-btn {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: inline-block;
+  padding: 1rem 2rem;
+  background-color: white;
+  color: white;
+  font-weight: bold;
+  text-decoration: none;
+  border-radius: 12px;
+  font-size: 4rem;
+  transition: all 0.3s ease;
+  z-index: 100;
+}
+
+.experience-btn:hover {
+  background: rgba(0, 0, 0, 0.7); 
+  backdrop-filter: blur(10px);          
+  -webkit-backdrop-filter: blur(10px);  ;
+  color: #1852FF;
+}
+
+a.experience-btn {
+  all: unset;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: inline-block;
+  padding: 8rem 8rem;
+  background: rgba(255, 255, 255, 0.3); 
+  backdrop-filter: blur(10px);          
+  -webkit-backdrop-filter: blur(10px);
+  color: white;
+  font-weight: bold;
+  font-size: 5rem;
+  text-align: center;
+  cursor: pointer;
+  z-index: 100;
+}
+
+</style>
+</head>
+
+
+
+<body>
+
+
+  <div class="left-section">
+    <h1>Shifted</h1>
+    <p style="padding-bottom: 1.5rem;padding-top: 0.7rem;">
+      About
+    </p>
+    <p class="description">
+      Shifted invites you to experience the reality beyond just being distracted.
+      This immersive website simulates the fragmented flow of attention, memory,
+      time, and impulse — through interactive simulations and a visual archive.
+    </p>
+    <p style="padding-top: 1.5rem;">
+      Shifted, It is just distraction. It is a different direction of sensing.
+    </p>
+  <nav class="menu">
+      <ul>
+        <ul>
+    <li><a href="#adhd"><span>What is ADHD</span></a><span>1</span></li>
+    <li><a href="#keysymptoms"><span>Key Symptoms</span></a><span>2</span></li>
+    <li><a href="#mainarchive"><span>Main Archive</span></a><span>3</span></li>
+    <li><a href="#treat-section"><span>Treatment</span></a><span>4</span></li>
+    <li><a href="experience.html"><span>Experience it</span></a><span>5</span></li>
+  </ul>
+  </nav>
+  </div>
+
+
+<header>
+<div class="orbit-container">
+  <div class="orbit-card orbit-card-1"><img src="gif1.gif" /></div>
+  <div class="orbit-card orbit-card-2"><img src="gif2.gif" /></div>
+  <div class="orbit-card orbit-card-9"><img src="gif9.gif" /></div>
+  <div class="orbit-card orbit-card-4"><img src="gif4.gif" /></div>
+  <div class="orbit-card orbit-card-5"><img src="gif5.gif" /></div>
+  <div class="orbit-card orbit-card-12"><img src="gif12.gif" /></div>
+  <div class="orbit-card orbit-card-13"><img src="gif13.gif" /></div>
+  <div class="orbit-card orbit-card-7"><img src="gif7.gif" /></div>
+  <div class="orbit-card orbit-card-10"><img src="gif10.gif" /></div>
+   <div class="orbit-card orbit-card-8"><img src="gif8.gif" /></div>
+</div>
+</header>
+
+
+<section style="padding-top:300px;height: 1000px;position: relative;left: 800px;top: 200px;">
+  <div class="s0">
+    <li> <a href="#adhd" class="menu-text">
+    <span class="menu-num">1</span>
+    <span class="menu-label">What is ADHD</span>
+  </a></li>
+    <li> <a href="#keysymptoms" class="menu-text">
+    <span class="menu-num">2</span>
+    <span class="menu-label">Key Symptoms</span>
+  </a></li>
+    <li> <a href="#mainarchive" class="menu-text">
+    <span class="menu-num">3</span>
+    <span class="menu-label">Main Archive</span>
+  </a></li>
+      <li> <a href="#treat-section" class="menu-text">
+    <span class="menu-num">4</span>
+    <span class="menu-label">Treatment</span>
+  </a></li>
+   <li> <a href="experience.html" class="menu-text">
+    <span class="menu-num">5</span>
+    <span class="menu-label">Experience it</span>
+  </a></li>
+</section>
+
+
+<section class="info-section" id="adhd">
+  <div class="info-left">
+    <h1>ADHD</h1>
+    <h2>Attention Deficit<br>Hyperactivity Disorder</h2>
+  </div>
+  <div class="info-right">
+    <p style="font-size:1.2rem;line-height: 1.7">
+      주의력결핍 과잉행동장애(attention deficit hyperactivity disorder, ADHD)는
+      주의산만, 과잉행동, 충동성을 주 증상으로 보이는 만성적인 경과를 밝는 특징을 지닙니다.
+      일반적으로 학습 장애나 다른 발달상의 장애를 겸하며, 적절한 치료가 이루어지지 않으면
+      학업수행이나 사회적 기능, 직장업무 능력 등에 어려움을 겪을 수 있습니다.
+    </p>
+  </div>
+</section>
+
+
+<section class="s1">
+  <div class="blue-box">
+  <img src="kid.png" style="position: relative;width:405px;bottom: 150px;" class="swing">
+</div>
+  <div class="text-box-title">1. 독해력 저하</div>
+  <div class="text-box-content">
+    <p style="padding-bottom: 30px;">
+     예를 들어 책을 읽다가도 몇 문장 지나면 방금 읽은 부분이 전혀 기억나지 않아 처음으로 돌아가 읽곤 하죠. 또는 책을 읽는 도중에 딴생각이 떠올라 내용의 흐름을 놓치는 경우가 잦아집니다. 이러한 현상 때문에 독서나 공부를 할 때 소요되는 시간이 오래 걸리거나 내용 이해가 더딘 상황이 벌어집니다.
+    </p>
+    <p style="padding-bottom: 30px;">
+     이러한 독해력 저하는 집중력 저하와 정보 처리 능력의 어려움에서 비롯됩니다. ADHD가 있는 사람들은 기억력, 주의 집중, 정보 처리 등 여러 인지 과정이 원활히 이루어지지 않아 읽은 내용을 머릿속에 통합하기 힘듭니다. 특히 뇌의 정보 처리 속도가 느려져서 일반인보다 읽는 데 시간이 더 오래 걸리고 이해도도 떨어질 수 있습니다. 
+    </p>
+    <p>
+    다시 말해, 글자를 읽는 능력 자체는 정상이지만 내용을 유지하고 해석하는 집중력이 충분하지 않기 때문에 읽고도 이해하지 못하는 어려움을 겪게 됩니다.
+    </p>
+  </div>
+</div>
+</section>
+
+<section style="background-color: black;height: 750px;"id="keysymptoms">
+  <div class="text-box2">
+  <div class="text-box-title2">2. 주의 산만</div>
+  <div class="text-box-content2">
+    <p style="padding-bottom: 30px;">
+     실제 연구에 따르면 ADHD에서는 뇌의 전두엽 기능이 저하되고 도파민 등 신경전달물질 불균형이 나타나 집중을 계속 지속하기 어렵게 만든다고 알려져 있습니다.
+    </p>
+    <p style="padding-bottom: 30px;">
+     전두엽은 우리의 집행 기능(필요한 일을 계획하고 충동을 억제하며 주의를 유지하는 능력)을 담당하는 부분인데, 해당 부위의 활성도가 낮으면 스스로 주의를 한 곳에 집중하기가 힘들어집니다. 요컨대, ADHD의 뇌는 시끄러운 환경에서 불필요한 자극을 걸러내고 필요한 일에만 집중하는 필터 작용이 약하기 때문에, 주변 작은 변화나 자극만 있어도 쉽게 주의가 산만해질 수 있습니다.
+    </p>
+  </div>
+</div>
+<p style="color: white;position: relative;bottom: 630px;left: 365px;color: #FF4B57 ;"> hover the boxes!</p>
+  <p style="background-color: #0057ff;font-weight: 600; font-size: 1.7rem;line-height: 1.5; padding: 20px 20px;padding-left:30px;width:525px;position: relative;bottom: 600px;left: 365px;" class="box box1">
+   공부를 하려고 책상에 앉았지만<br> 얼마 지나지 않아 휴대폰 알림이나 주변 소음에 시선이 가본 경험이 있나요?
+  </p>
+  <p style="background-color: #0057ff;   
+  font-weight: 600; font-size: 1.7rem;line-height: 1.5; padding: 20px 20px;width:525px; padding-left:30px; position: relative;bottom: 580px;left:  365px;"class="box box2">
+   수업 시간에 선생님의 설명을 듣다가도 머릿속으로 딴생각을 하며 흘려들은 적은요?
+  </p>
+  <p style="background-color: #0057ff;   
+  font-weight: 600; font-size: 1.7rem;line-height: 1.5; padding: 20px 20px;width:525px; padding-left:30px;position: relative;bottom: 560px;left:  365px"class="box box3">
+   집중하려 할수록 다리가 들썩이거나, <br>손에 쥔 펜을 계속 돌리고, <br>몸을 가만히 냅두지 못한 적 있나요?
+  </p>
+</section>
+
+<section style="background-image: url(face.png);background-repeat: repeat-x;background-size: cover;background-position: 0 center;
+  background-color: #D0D0D0; height: 1200px;
+  animation: moveBackground 1s linear infinite alternate;height: 1200px;background-position: center center;background-color: #D0D0D0;">
+<div class="text-box3" style="position:relative;top: 250px;right: 750px;">
+  <div class="text-box-title3">3. 단기기억오류</div>
+  <div class="text-box-content3">
+    <p style="padding-bottom: 20px;">
+     방금 들은 이야기를 금세 잊어버리거나, 막상 전하려던 말을 순간적으로 떠올리지 못해 말문이 막힌 적 있나요?</p>
+     <p style="padding-bottom: 20px;"> 예를 들어, 방에서 거실로 걸어간 순간 내가 뭘 하러 왔지...하고 잊어버리는 일, 친구가 알려준 약속 시간을 다시 물어봐야 할 정도로 금방 잊는 일이 생길 수 있습니다. 물건을 둔 곳을 잊어버리거나 방금 확인한 전화번호를 또 확인해야 하는 등, 작은 기억 실수가 반복되면서 생활에 불편을 느끼기도 합니다.</p>
+  </div>
+  <div class="text-box-content3-hover">
+  <p style="padding-bottom: 20px;">이러한 단기 기억 오류는 ADHD로 인해 뇌의 단기 기억 능력이 약해지기 때문에 
+발생합니다. 이러한 단기 기억은 흔하게 뇌의 포스트잇이라고 불리는데, 잠시 
+정보를 머릿속에 저장해두는 능력입니다. ADHD가 있는 사람들의 대다수(연구에 따르면 70% 이상)가 이러한 단기 기억의 
+저하를 겪는 것으로 보고되었습니다.
+  <p style="padding-bottom: 20px;">
+따라서 뇌의 전두엽에서 정보를 임시로 유지하고 처리하는 기능이 원활하지 않아 여러 가지 정보를 한꺼번에 기억하거나 순서를 유지하는 데 어려움이 생깁니다. 그래서 방금 들은 것도 잊어버리기 쉽고, 동시에 여러 지시사항을 들으면 일부를 놓치는 일이 잦아지는 것입니다.</p>
+  </div>
+</div>
+
+<div class="text-box3" style="position:relative;top: 30px;right: 320px;">
+  <div class="text-box-title3">4. 회피 성향</div>
+  <div class="text-box-content3">
+    <p style="padding-bottom: 20px;">
+    해야 할 일이 있어도 자꾸만 미루거나 피하게 되는 것도 흔한 모습입니다. 과제가 하루 남았는데도 당장 급하지 않다는 이유로 미뤄두고, 마감 전날 밤이 되어서 부랴부랴 시작하는 거죠.</p>
+    <p style="padding-bottom: 20px;"> 혹은 공부를 하기로 마음먹고는 갑자기 책상을 정리하거나 간식을 찾는 등 다른 일을 하며 중요한 할 일을 회피하기도 합니다. 이렇게 할 일을 미루는 습관 때문에 마감 시간에 쫓겨 스트레스를 받거나, 결국 일을 제때에 끝내지 못해 곤란을 겪기도 합니다.
+    </p>
+  </div>
+   <div class="text-box-content3-hover">
+  <p style="padding-bottom: 20px;">이러한 미루기와 회피 행동 뒤에는 ADHD 뇌의 보상체계 특징이 있습니다. ADHD가 있는 사람들은 뇌에서 동기부여를 느끼게 하는 도파민 호르몬의 분비가 상대적으로 부족해서 지루함을 견디는 것이 힘들고 눈앞에 즉각적인 보상이 없는 일에 크게 의욕을 내기 어렵습니다.</p><p style="padding-bottom: 65px;"> 그래서 재미없고 힘든 일은 자꾸 뒤로 미루게 되고, 대신 지금 당장 즐거운 일에 끌리는 것입니다.</p>
+  </div>
+</div>
+
+<div class="text-box3" style="position:relative;left: 110px;bottom: 200px;">
+  <div class="text-box-title3">5. 시간감각왜곡</div>
+  <div class="text-box-content3">
+    <p style="padding-bottom: 20px;">
+     체감상으론 5분 정도 보낸 것 같았는데 실제로는 20분이 지나 있는 식으로, 시간의 흐름을 잘못 느끼는 경우가 많습니다. 예컨대, 유튜브를 5분만 봐야지 했다가 금새 한 시간이 지나버리기도 하고, 금방 끝낼 일이라고 생각했는데 실제로는 한참 걸려 약속 시간에 늦는 일이 벌어지곤 합니다. 이처럼 시간을 계획대로 사용하지 못하고 종종 약속이나 마감 시간에 늦게 되는 건 ADHD 당사자들에게 특히나 흔한 어려움으로 작용합니다.
+    </p>
+  </div>
+     <div class="text-box-content3-hover">
+  <p style="padding-bottom: 50px;">그렇다면 왜 이런 시간 왜곡이 생길까요? ADHD 뇌는 시간을 체감하고 예측하는 
+기능에도 차이가 있기 때문입니다. </p><p style="padding-bottom: 50px;"> ADHD 전문가인 Russell Barkley 박사에 따르면 ADHD를 가진 이들에게 시간은 지금과 나중 두 가지로만 구분되며, 당장 눈에 닥치지 않은 일은 의식에서 벗어나 있기 쉽다고 합니다. 그래서 미래의 일이나 
+마감 기한이 실감 나지 않아 계획을 세워도 자꾸 잊어버리거나 긴장감이 없다가, 마감이 임박해서야 급하게 행동에 옮기는 경향이 생깁니다.</p>
+  </div>
+</div>
+</section>
+
+<section style="background-color:#FFEA00;padding-left: 310px;">
+  <h1 class="text-box";> Main<br>Archive </h1>
+</section>
+
+<section style="background-color:#FFEA00;height: 1700px;" id="mainarchive">
+  <div class="image-gallery">
+<div class="image-wrapper" style="position:relative;left: 170px;top: 240px;">
+  <div class="number-box" style="position:absolute;top: 150px;left: 200px;">1</div>
+  <img src="img5.png" class="adhd-img" />
+  <div class="description-box">
+    <div class="number-tag">1</div>
+    <p> 딴 생각하다가 까맣게 다 타버린 크루아상</p>
+  </div>
+</div>
+
+<div class="image-wrapper" style="position:relative;right: 80px;top: -280px;">
+  <div class="number-box" style="position: absolute;top:-20px; left: -50px;">2</div>
+  <img src="img6.png" class="adhd-img" style="width:400px" />
+  <div class="description-box">
+     <div class="number-tag">2</div>
+    <p> 미루고 미루다 결국 밤새 쌓인 에너지 드링크</p>
+  </div>
+</div>
+
+<div class="image-wrapper" style="position:relative;left: 970px;bottom: 500px;">
+  <div class="number-box" style="position:absolute; left: 180px; top: -40px;">3</div>
+  <img src="img7.png" class="adhd-img" style="width:630px" />
+  <div class="description-box">
+     <div class="number-tag">3</div>
+    <p> 읽진 않았지만 컵받침으론 유용한 책</p>
+  </div>
+</div>
+
+<div class="image-wrapper" style="position:relative;bottom: 400px;left: 130px;">
+  <div class="number-box" style="position:absolute; top: -3px;">4</div>
+  <img src="img8.png" class="adhd-img" style="width:350px" />
+  <div class="description-box">
+     <div class="number-tag">4</div>
+    <p> 항상 어디에 두고 와서 잃어버린 귀걸이 모음</p>
+  </div>
+</div>
+
+<div class="image-wrapper" style="position:relative; bottom: 520px;left: 530px;">
+  <div class="number-box" style="position:absolute; top: 20px;left: -20px;">5</div>
+  <img src="img9.png" class="adhd-img" style="width:500px" />
+  <div class="description-box">
+     <div class="number-tag">5</div>
+    <p> 매번 지각해서 친구에게 바친 사죄의 라떼</p>
+  </div>
+</div>
+
+
+<div class="image-wrapper" style="position:relative; bottom: 630px;left: 550px;">
+  <div class="number-box" style="position:absolute;top: -30px;left: -10px;">6</div>
+  <img src="img10.png" class="adhd-img" style="width:230px" />
+  <div class="description-box">
+     <div class="number-tag">6</div>
+    <p> 덮는 걸 깜빡해서 다 말라버린 립밤</p>
+  </div>
+</div>
+
+<div class="image-wrapper" style="position:relative; bottom: 800px;left: 170px;">
+  <div class="number-box" style="position:absolute;top: 30px;left: 170px;">7</div>
+  <img src="img11.png" class="adhd-img" style="width:550px" />
+  <div class="description-box">
+     <div class="number-tag">7</div>
+    <p> 풀다가 포기한 채 쌓여만 가는 이어폰들</p>
+  </div>
+  </div>
+</div>
+</section>
+
+<section id="treat-section" style="min-height: 800px; background: black; color: white;background: url('man.gif') center; background-attachment: fixed;background-size:100px ;padding-top: 100px;" class="new">
+
+  <h1 style="font-size: 6rem; text-align: center; padding-top: 300px; padding-bottom: 100px; background-color: black;display: inline-block;
+  padding: 1rem 2rem;z-index: 100;">How To Treat it?</h1>
+
+  <div id="face-container" style="position: relative; display: inline-block; margin-top: 2rem; cursor: pointer;">
+    <img id="face" src="img12.png" style="width: 400px; position: relative; z-index: 2; z-index: 40;" />
+    <img id="pill" src="img14.png" style="position: absolute; left: -400px; top: 220px; width: 400px; display: none;" />
+
+     <img id="text" src="img16.png" style="margin-top: 2rem; display: none;" />
+     <p id="click-text" style="color:white ; font-size: 2rem; position: relative;top: -280px;left:5px;z-index: 50;">click</p>
+  </div>
+
+<div id="text-info" style="display: none; margin-top: 5rem;" class="info-box">
+  <div class="box-group">
+    <h3>중추신경 자극제</h3>
+    <div class="flip-box">
+  <div class="flip-inner">
+    <div class="boxa flip-front">
+      <p>메칠페니데이트(Methylphenidate)</p><br>
+      - 6세 이상 소아 및 청소년: 1일 1회, 5mg 2회 복용<br>
+      - 성인: 1일 1~2회, 20~60mg 복용<br><br>
+      * 필요 시 1주 간격으로 5~10mg씩 증량(1일 최대 60mg)
+    </div>
+    <div class="boxa flip-back">
+   <p>메칠페니데이트(Methylphenidate)</p><br>
+      - 두통, 위통, 불면증, 식욕저하, 안절부절, 어지러움 등이 나타날 수 있습니다.<br>수면 장애를 악화시킬 수 있으므로 오전에 복용하는 것을 권장합니다.
+    </div>
+  </div>
+  </div>
+</div>
+  <div class="box-group">
+    <h3>비중추신경 자극제</h3>
+      <div class="flip-box">
+  <div class="flip-inner">
+    <div class="boxa flip-front">
+      <p>아토목세틴(Atomoxetine)</p><br>
+      - 70kg 이하 소아: 1일 1회, 초회 0.5mg 유지 1.2mg 오전 복용 <br>
+      - 70kg 초과 소아 및 성인: 1일 1회, 초회 40mg, 유지 80mg 오전 복용<br><br> * 필요 시 1일 최대 100mg
+       </div>
+    <div class="boxa flip-back">
+      <p>아토목세틴(Atomoxetine)</p><br>
+      - 소화불량, 구역, 구토, 피로, 식욕감소, 어지러움, 기분변화 등의 증상이 나타날 수 있습니다. 약 10% 정도가 부작용을 견디기 어려워 약을 중단합니다.
+    </div>
+  </div>
+  </div>
+      <div class="boxa" style= "margin-top: 315px; width: 300px;">
+      <p>클로니딘(Clonidine)<br><br>
+      - 6~17세 소아 및 청소년: 1일 2회, 0.1~0.4mg 오전과 취침 시 복용 </p>
+    </div>
+    </div>
+  </div>
+</div>
+
+</section>
+
+<section class="new-section" style="position:relative;">
+  <a href="experience.html" class="experience-btn">Experience it</a>
+  <div class="orbit-container" style="position:relative;right: 700px;margin-right: 300px;padding-right: 300px;">
+  <div class="orbit-card orbit-card-1"><img src="gif1.gif" /></div>
+  <div class="orbit-card orbit-card-2"><img src="gif2.gif" /></div>
+  <div class="orbit-card orbit-card-9"><img src="gif9.gif" /></div>
+  <div class="orbit-card orbit-card-4"><img src="gif4.gif" /></div>
+  <div class="orbit-card orbit-card-5"><img src="gif5.gif" /></div>
+  <div class="orbit-card orbit-card-12"><img src="gif12.gif" /></div>
+  <div class="orbit-card orbit-card-13"><img src="gif13.gif" /></div>
+  <div class="orbit-card orbit-card-7"><img src="gif7.gif" /></div>
+  <div class="orbit-card orbit-card-10"><img src="gif10.gif" /></div>
+   <div class="orbit-card orbit-card-8"><img src="gif8.gif" /></div>
+  
+</div>
+</section>
+
+
+
+<script>
+  const wrappers = document.querySelectorAll('.image-wrapper');
+
+wrappers.forEach(wrapper => {
+  wrapper.addEventListener('mouseenter', () => {
+    wrapper.classList.add('active');
+    document.querySelector('.image-gallery').classList.add('hovering');
+  });
+
+  wrapper.addEventListener('mouseleave', () => {
+    wrapper.classList.remove('active');
+    document.querySelector('.image-gallery').classList.remove('hovering');
+  });
+});
+
+
+const face = document.getElementById("face");
+const pill = document.getElementById("pill");
+const text = document.getElementById("text");
+const clickText = document.getElementById("click-text");
+
+const treatSection = document.getElementById("treat-section");
+
+
+face.addEventListener("click", () => {
+ 
+  face.src = "img13.png";
+
+   treatSection.style.background = "black";
+
+   pill.style.display = "block";
+  pill.style.animation = "pillMove 3s ease forwards";
+
+if (clickText) clickText.style.display = "none";
+  
+  setTimeout(() => {
+    pill.style.display = "none";
+    face.src = "img15.png"; text.style.display = "block";
+  }, 1500);
+});
+
+
+
+const textTrigger = document.getElementById("text");
+const textInfo = document.getElementById("text-info");
+
+textTrigger.addEventListener("click", () => {
+  textInfo.style.display = "flex";
+});
+
+
+
+
+
+
+
+
+
+</script>
+</body>
+</html>
